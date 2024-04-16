@@ -1,0 +1,129 @@
+<resources>
+    <string name="app_name">RUCAFE_ANDROIDAPP</string>
+    <string name="ru_cafe_title">RU Cafe</string>
+    <string name="order_items_view">Order</string>
+    <string name="donut_title_view">Donuts</string>
+    <string name="donut_type">TextView</string>
+    <string name="donut_type_select">Select Type</string>
+    <string name="yeast_donut_type">Yeast</string>
+    <string name="cake">Cake</string>
+    <string name="donut_holes">Donut holes</string>
+    <string name="flavor_type_select">Select Flavor</string>
+    <string name="select_quantity_type">Select Quantity</string>
+    <string name="add_to_list_btn">Add to List</string>
+    <string name="view_list_btn">View List</string>
+    <string name="donut_list_title">Donut List</string>
+    <string name="donut_options_title">Donut Options</string>
+    <string name="donut_type_title">Type</string>
+    <string name="donut_flavor_title">Flavor</string>
+    <string name="add_button_symbol">+</string>
+    <string name="select_coffeesize_title">Select Size</string>
+    <string name="select_addons_title">Select Addons</string>
+    <string name="select_coffee_addons_title">Select Addons</string>
+    <string name="short_coffee">Short</string>
+    <string name="tall_coffee">Tall</string>
+    <string name="grande_coffee">Grande</string>
+    <string name="venti_coffee">Venti</string>
+    <string name="coffee_quantity">Quantity</string>
+    <string name="subtotal_coffee">Subtotal</string>
+    <string name="add_to_cart">Add to cart</string>
+    <string name="view_cart_orders_title">View</string>
+    <string name="cart_title">Click Item to Remove</string>
+    <string name="donut_price_title">Price per: $</string>
+    <string name="sweet_cream">Sweet cream</string>
+    <string name="french_vanilla">French vanilla</string>
+    <string name="irish_cream">Irish cream</string>
+    <string name="caramel">Caramel</string>
+    <string name="mocha">Mocha</string>
+    <string name="price_coffee">Price:</string>
+
+    <string-array name="donutTypeNames">
+        <item>Yeast</item>
+        <item>Cake</item>
+        <item>Donut Holes</item>
+    </string-array>
+    <string-array name="yeastFlavors">
+        <item>Glazed</item>
+        <item>Chocolate</item>
+        <item>Strawberry</item>
+        <item>Vanilla</item>
+        <item>Maple</item>
+        <item>Cinnamon</item>
+    </string-array>
+    <string-array name="cakeFlavors">
+        <item>Plain</item>
+        <item>Chocolate</item>
+        <item>Blueberry</item>
+    </string-array>
+    <string-array name="donutHoleFlavors">
+        <item>Cinnamon Sugar</item>
+        <item>Powdered Sugar</item>
+        <item>Jelly</item>
+    </string-array>
+    <string-array name="donut_quantity_selection">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+        <item>11</item>
+        <item>12</item>
+    </string-array>
+
+    <string-array name="donut_prices">
+        <item>1.79</item>
+        <item>1.89</item>
+        <item>0.39</item>
+    </string-array>
+
+    <string-array name="coffee_size">
+        <item>Short</item>
+        <item>Tall</item>
+        <item>Grande</item>
+        <item>Venti</item>
+    </string-array>
+    
+    <string-array name="coffee_addons">
+        <item>Sweet cream</item>
+        <item>French vanilla</item>
+        <item>Irish cream</item>
+        <item>Caramel</item>
+        <item>Mocha</item>
+    </string-array>
+    <string-array name="coffee_quantity_selection">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+    </string-array>
+
+    <string-array name="coffee_size_prices">
+        <item>1.49</item>
+        <item>1.99</item>
+        <item>2.49</item>
+        <item>2.99</item>
+    </string-array>
+
+    <string name="coffee_size_short_price">1.49</string>
+    <string name="coffee_size_tall_price">1.99</string>
+    <string name="coffee_size_grande_price">2.49</string>
+    <string name="coffee_size_venti_price">2.99</string>
+
+    <string name="coffee_addon_price">0.39</string>
+    <string name="subtotal">SUBTOTAL</string>
+    <string name="total">Total</string>
+    <string name="sales_tax_cart">SALES TAX</string>
+    <string name="order">Order</string>
+    <string name="tax">0.06625</string>
+
+
+
+
+</resources>

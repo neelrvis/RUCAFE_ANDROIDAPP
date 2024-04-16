@@ -1,0 +1,190 @@
+[
+    {
+        "merged": "/Users/neel/daemon/8.4/com.example.rucafe_androidapp-debug-4:/layout_cart_activity.xml.flat",
+        "source": "/Users/neel/daemon/8.4/com.example.rucafe_androidapp-main-6:/layout/cart_activity.xml"
+    },
+    {
+        "merged": "/Users/neel/daemon/8.4/com.example.rucafe_androidapp-debug-4:/drawable_plain_cake.jpeg.flat",
+        "source": "/Users/neel/daemon/8.4/com.example.rucafe_androidapp-main-6:/drawable/plain_cake.jpeg"
+    },
+    {
+        "merged": "/Users/neel/daemon/8.4/com.example.rucafe_androidapp-debug-4:/mipmap-xxxhdpi_ic_launcher.webp.flat",
+        "source": "/Users/neel/daemon/8.4/com.example.rucafe_androidapp-main-6:/mipmap-xxxhdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "/Users/neel/daemon/8.4/com.example.rucafe_androidapp-debug-4:/mipmap-anydpi_ic_launcher_round.xml.flat",
+        "source": "/Users/neel/daemon/8.4/com.example.rucafe_androidapp-main-6:/mipmap-anydpi/ic_launcher_round.xml"
+    },
+    {
+        "merged": "/Users/neel/daemon/8.4/com.example.rucafe_androidapp-debug-4:/drawable_donut_yeast.png.flat",
+        "source": "/Users/neel/daemon/8.4/com.example.rucafe_androidapp-main-6:/drawable/donut_yeast.png"
+    },
+    {
+        "merged": "/Users/neel/daemon/8.4/com.example.rucafe_androidapp-debug-4:/xml_data_extraction_rules.xml.flat",
+        "source": "/Users/neel/daemon/8.4/com.example.rucafe_androidapp-main-6:/xml/data_extraction_rules.xml"
+    },
+    {
+        "merged": "/Users/neel/daemon/8.4/com.example.rucafe_androidapp-debug-4:/drawable_strawberry_yeast.jpeg.flat",
+        "source": "/Users/neel/daemon/8.4/com.example.rucafe_androidapp-main-6:/drawable/strawberry_yeast.jpeg"
+    },
+    {
+        "merged": "/Users/neel/daemon/8.4/com.example.rucafe_androidapp-debug-4:/drawable_cinnamon_yeast.jpeg.flat",
+        "source": "/Users/neel/daemon/8.4/com.example.rucafe_androidapp-main-6:/drawable/cinnamon_yeast.jpeg"
+    },
+    {
+        "merged": "/Users/neel/daemon/8.4/com.example.rucafe_androidapp-debug-4:/layout_donut_activity.xml.flat",
+        "source": "/Users/neel/daemon/8.4/com.example.rucafe_androidapp-main-6:/layout/donut_activity.xml"
+    },
+    {
+        "merged": "/Users/neel/daemon/8.4/com.example.rucafe_androidapp-debug-4:/drawable_maple_yeast.jpeg.flat",
+        "source": "/Users/neel/daemon/8.4/com.example.rucafe_androidapp-main-6:/drawable/maple_yeast.jpeg"
+    },
+    {
+        "merged": "/Users/neel/daemon/8.4/com.example.rucafe_androidapp-debug-4:/drawable_back_btn.jpg.flat",
+        "source": "/Users/neel/daemon/8.4/com.example.rucafe_androidapp-main-6:/drawable/back_btn.jpg"
+    },
+    {
+        "merged": "/Users/neel/daemon/8.4/com.example.rucafe_androidapp-debug-4:/drawable_glazed_yeast.jpg.flat",
+        "source": "/Users/neel/daemon/8.4/com.example.rucafe_androidapp-main-6:/drawable/glazed_yeast.jpg"
+    },
+    {
+        "merged": "/Users/neel/daemon/8.4/com.example.rucafe_androidapp-debug-4:/drawable_donut_cake.png.flat",
+        "source": "/Users/neel/daemon/8.4/com.example.rucafe_androidapp-main-6:/drawable/donut_cake.png"
+    },
+    {
+        "merged": "/Users/neel/daemon/8.4/com.example.rucafe_androidapp-debug-4:/drawable_powderedsugar_donutholes.jpeg.flat",
+        "source": "/Users/neel/daemon/8.4/com.example.rucafe_androidapp-main-6:/drawable/powderedsugar_donutholes.jpeg"
+    },
+    {
+        "merged": "/Users/neel/daemon/8.4/com.example.rucafe_androidapp-debug-4:/mipmap-xxhdpi_ic_launcher_round.webp.flat",
+        "source": "/Users/neel/daemon/8.4/com.example.rucafe_androidapp-main-6:/mipmap-xxhdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "/Users/neel/daemon/8.4/com.example.rucafe_androidapp-debug-4:/mipmap-xxhdpi_ic_launcher.webp.flat",
+        "source": "/Users/neel/daemon/8.4/com.example.rucafe_androidapp-main-6:/mipmap-xxhdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "/Users/neel/daemon/8.4/com.example.rucafe_androidapp-debug-4:/drawable_ru_cafe.png.flat",
+        "source": "/Users/neel/daemon/8.4/com.example.rucafe_androidapp-main-6:/drawable/ru_cafe.png"
+    },
+    {
+        "merged": "/Users/neel/daemon/8.4/com.example.rucafe_androidapp-debug-4:/mipmap-mdpi_ic_launcher.webp.flat",
+        "source": "/Users/neel/daemon/8.4/com.example.rucafe_androidapp-main-6:/mipmap-mdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "/Users/neel/daemon/8.4/com.example.rucafe_androidapp-debug-4:/mipmap-anydpi_ic_launcher.xml.flat",
+        "source": "/Users/neel/daemon/8.4/com.example.rucafe_androidapp-main-6:/mipmap-anydpi/ic_launcher.xml"
+    },
+    {
+        "merged": "/Users/neel/daemon/8.4/com.example.rucafe_androidapp-debug-4:/drawable_apple_sandwich.png.flat",
+        "source": "/Users/neel/daemon/8.4/com.example.rucafe_androidapp-main-6:/drawable/apple_sandwich.png"
+    },
+    {
+        "merged": "/Users/neel/daemon/8.4/com.example.rucafe_androidapp-debug-4:/drawable_vanilla_yeast.jpeg.flat",
+        "source": "/Users/neel/daemon/8.4/com.example.rucafe_androidapp-main-6:/drawable/vanilla_yeast.jpeg"
+    },
+    {
+        "merged": "/Users/neel/daemon/8.4/com.example.rucafe_androidapp-debug-4:/layout_donuts_view.xml.flat",
+        "source": "/Users/neel/daemon/8.4/com.example.rucafe_androidapp-main-6:/layout/donuts_view.xml"
+    },
+    {
+        "merged": "/Users/neel/daemon/8.4/com.example.rucafe_androidapp-debug-4:/mipmap-xhdpi_ic_launcher_round.webp.flat",
+        "source": "/Users/neel/daemon/8.4/com.example.rucafe_androidapp-main-6:/mipmap-xhdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "/Users/neel/daemon/8.4/com.example.rucafe_androidapp-debug-4:/drawable_apple_donut.png.flat",
+        "source": "/Users/neel/daemon/8.4/com.example.rucafe_androidapp-main-6:/drawable/apple_donut.png"
+    },
+    {
+        "merged": "/Users/neel/daemon/8.4/com.example.rucafe_androidapp-debug-4:/color_red.xml.flat",
+        "source": "/Users/neel/daemon/8.4/com.example.rucafe_androidapp-main-6:/color/red.xml"
+    },
+    {
+        "merged": "/Users/neel/daemon/8.4/com.example.rucafe_androidapp-debug-4:/drawable_apple_list.png.flat",
+        "source": "/Users/neel/daemon/8.4/com.example.rucafe_androidapp-main-6:/drawable/apple_list.png"
+    },
+    {
+        "merged": "/Users/neel/daemon/8.4/com.example.rucafe_androidapp-debug-4:/xml_backup_rules.xml.flat",
+        "source": "/Users/neel/daemon/8.4/com.example.rucafe_androidapp-main-6:/xml/backup_rules.xml"
+    },
+    {
+        "merged": "/Users/neel/daemon/8.4/com.example.rucafe_androidapp-debug-4:/color_gray.xml.flat",
+        "source": "/Users/neel/daemon/8.4/com.example.rucafe_androidapp-main-6:/color/gray.xml"
+    },
+    {
+        "merged": "/Users/neel/daemon/8.4/com.example.rucafe_androidapp-debug-4:/drawable_chocolate_cake.jpeg.flat",
+        "source": "/Users/neel/daemon/8.4/com.example.rucafe_androidapp-main-6:/drawable/chocolate_cake.jpeg"
+    },
+    {
+        "merged": "/Users/neel/daemon/8.4/com.example.rucafe_androidapp-debug-4:/drawable_chocolate_yeast.jpeg.flat",
+        "source": "/Users/neel/daemon/8.4/com.example.rucafe_androidapp-main-6:/drawable/chocolate_yeast.jpeg"
+    },
+    {
+        "merged": "/Users/neel/daemon/8.4/com.example.rucafe_androidapp-debug-4:/drawable_blueberry_cake.jpeg.flat",
+        "source": "/Users/neel/daemon/8.4/com.example.rucafe_androidapp-main-6:/drawable/blueberry_cake.jpeg"
+    },
+    {
+        "merged": "/Users/neel/daemon/8.4/com.example.rucafe_androidapp-debug-4:/drawable_donut_holes.png.flat",
+        "source": "/Users/neel/daemon/8.4/com.example.rucafe_androidapp-main-6:/drawable/donut_holes.png"
+    },
+    {
+        "merged": "/Users/neel/daemon/8.4/com.example.rucafe_androidapp-debug-4:/drawable_ic_launcher_background.xml.flat",
+        "source": "/Users/neel/daemon/8.4/com.example.rucafe_androidapp-main-6:/drawable/ic_launcher_background.xml"
+    },
+    {
+        "merged": "/Users/neel/daemon/8.4/com.example.rucafe_androidapp-debug-4:/color_teal_200.xml.flat",
+        "source": "/Users/neel/daemon/8.4/com.example.rucafe_androidapp-main-6:/color/teal_200.xml"
+    },
+    {
+        "merged": "/Users/neel/daemon/8.4/com.example.rucafe_androidapp-debug-4:/drawable_apple_coffee.png.flat",
+        "source": "/Users/neel/daemon/8.4/com.example.rucafe_androidapp-main-6:/drawable/apple_coffee.png"
+    },
+    {
+        "merged": "/Users/neel/daemon/8.4/com.example.rucafe_androidapp-debug-4:/layout_activity_main.xml.flat",
+        "source": "/Users/neel/daemon/8.4/com.example.rucafe_androidapp-main-6:/layout/activity_main.xml"
+    },
+    {
+        "merged": "/Users/neel/daemon/8.4/com.example.rucafe_androidapp-debug-4:/drawable_ic_launcher_foreground.xml.flat",
+        "source": "/Users/neel/daemon/8.4/com.example.rucafe_androidapp-main-6:/drawable/ic_launcher_foreground.xml"
+    },
+    {
+        "merged": "/Users/neel/daemon/8.4/com.example.rucafe_androidapp-debug-4:/mipmap-hdpi_ic_launcher_round.webp.flat",
+        "source": "/Users/neel/daemon/8.4/com.example.rucafe_androidapp-main-6:/mipmap-hdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "/Users/neel/daemon/8.4/com.example.rucafe_androidapp-debug-4:/drawable_jelly_donutholes.jpg.flat",
+        "source": "/Users/neel/daemon/8.4/com.example.rucafe_androidapp-main-6:/drawable/jelly_donutholes.jpg"
+    },
+    {
+        "merged": "/Users/neel/daemon/8.4/com.example.rucafe_androidapp-debug-4:/layout_coffee_activity.xml.flat",
+        "source": "/Users/neel/daemon/8.4/com.example.rucafe_androidapp-main-6:/layout/coffee_activity.xml"
+    },
+    {
+        "merged": "/Users/neel/daemon/8.4/com.example.rucafe_androidapp-debug-4:/mipmap-mdpi_ic_launcher_round.webp.flat",
+        "source": "/Users/neel/daemon/8.4/com.example.rucafe_androidapp-main-6:/mipmap-mdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "/Users/neel/daemon/8.4/com.example.rucafe_androidapp-debug-4:/mipmap-xhdpi_ic_launcher.webp.flat",
+        "source": "/Users/neel/daemon/8.4/com.example.rucafe_androidapp-main-6:/mipmap-xhdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "/Users/neel/daemon/8.4/com.example.rucafe_androidapp-debug-4:/drawable_cinnamonsugar_donutholes.jpeg.flat",
+        "source": "/Users/neel/daemon/8.4/com.example.rucafe_androidapp-main-6:/drawable/cinnamonsugar_donutholes.jpeg"
+    },
+    {
+        "merged": "com.example.rucafe_androidapp-debug-4:/layout_coffee_activity.xml.flat",
+        "source": "com.example.rucafe_androidapp-main-6:/layout/coffee_activity.xml"
+    },
+    {
+        "merged": "/Users/neel/daemon/8.4/com.example.rucafe_androidapp-debug-4:/mipmap-xxxhdpi_ic_launcher_round.webp.flat",
+        "source": "/Users/neel/daemon/8.4/com.example.rucafe_androidapp-main-6:/mipmap-xxxhdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "/Users/neel/daemon/8.4/com.example.rucafe_androidapp-debug-4:/mipmap-hdpi_ic_launcher.webp.flat",
+        "source": "/Users/neel/daemon/8.4/com.example.rucafe_androidapp-main-6:/mipmap-hdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "/Users/neel/daemon/8.4/com.example.rucafe_androidapp-debug-4:/drawable_apple_cart.png.flat",
+        "source": "/Users/neel/daemon/8.4/com.example.rucafe_androidapp-main-6:/drawable/apple_cart.png"
+    }
+]
