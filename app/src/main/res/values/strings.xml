@@ -105,16 +105,16 @@
     </string-array>
 
     <string-array name="coffee_size_prices">
-        <item>1.49</item>
         <item>1.99</item>
         <item>2.49</item>
         <item>2.99</item>
+        <item>3.49</item>
     </string-array>
 
-    <string name="coffee_size_short_price">1.49</string>
-    <string name="coffee_size_tall_price">1.99</string>
-    <string name="coffee_size_grande_price">2.49</string>
-    <string name="coffee_size_venti_price">2.99</string>
+    <string name="coffee_size_short_price">1.99</string>
+    <string name="coffee_size_tall_price">2.49</string>
+    <string name="coffee_size_grande_price">2.99</string>
+    <string name="coffee_size_venti_price">3.49</string>
 
     <string name="coffee_addon_price">0.39</string>
     <string name="subtotal">SUBTOTAL</string>

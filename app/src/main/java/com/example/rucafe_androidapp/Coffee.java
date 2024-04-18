@@ -21,6 +21,14 @@ public class Coffee extends MenuItem {
         this.quantity = quantity;
     }
 
+
+    public Coffee(String size, ArrayList<String> addons, int quantity) {
+        this.size = size;
+        this.addons = addons;
+        this.quantity = quantity;
+    }
+
+
     public String getSize() {
         return size;
     }
@@ -40,12 +48,36 @@ public class Coffee extends MenuItem {
     @Override
     public double price() {
 
-        return this.basePrice + this.addons.size() * addonPrice;
+        return this.quantity * (this.basePrice + this.addons.size() * addonPrice);
     }
 
     @Override
     public String toString() {
 
-        return this.quantity+" "+this.size+" coffees";
+        String addonscsv = "";
+        if (!this.addons.isEmpty()) {
+            addonscsv += " with ";
+            for (int i = 0; i < this.addons.size(); i++) {
+                if (i < (this.addons.size()-2)) {
+                    addonscsv += this.addons.get(i).toLowerCase() + ", ";
+                }
+                else if (i < (this.addons.size()-1)) {
+                    if (this.addons.size() > 2) {
+                        addonscsv += this.addons.get(i).toLowerCase() + ", & ";
+                    }
+                    else {
+                        addonscsv += this.addons.get(i).toLowerCase() + " & ";
+                    }
+                }
+                else {
+                    addonscsv += this.addons.get(i).toLowerCase();
+                }
+            }
+        }
+        return this.quantity + " " + this.size + " coffee" + ((this.quantity == 1) ? "" : "s") + addonscsv;
+
+
+
+
     }
 }
