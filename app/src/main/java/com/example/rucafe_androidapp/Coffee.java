@@ -9,11 +9,12 @@ public class Coffee extends MenuItem {
     private double basePrice;
     private int quantity;
 
-    private static final double addonPrice = 0.39;
+    public static final double addonPrice = 0.30;
 
     public Coffee() {
 
     }
+
     public Coffee(String size, ArrayList<String> addons, double basePrice, int quantity) {
         this.size = size;
         this.addons = addons;

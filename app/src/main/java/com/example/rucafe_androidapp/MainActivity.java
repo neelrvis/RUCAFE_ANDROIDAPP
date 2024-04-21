@@ -1,10 +1,9 @@
 package com.example.rucafe_androidapp;
 
 import android.content.Intent;
-import android.media.Image;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ImageButton;
+import android.widget.Button;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.ActionBar;
@@ -15,10 +14,11 @@ import androidx.core.view.WindowInsetsCompat;
 
 public class MainActivity extends AppCompatActivity {
 
-    ImageButton donutButton;
-    ImageButton coffeeButton;
-    ImageButton sandwichButton;
-    ImageButton cartButton;
+    Button donutButton;
+    Button coffeeButton;
+    Button sandwichButton;
+    Button cartButton;
+    Button orderButton;
 
 
 
@@ -31,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
         coffeeButton = findViewById(R.id.coffee_btn);
         sandwichButton = findViewById(R.id.sandwich_btn);
         cartButton = findViewById(R.id.cart_btn);
+        orderButton = findViewById(R.id.orders_btn);
         setUpButtonClick();
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
@@ -43,10 +44,6 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    public void goToDonutView(View view) {
-        Intent intent = new Intent(this, DonutActivity.class);
-        startActivity(intent);
-    }
     public void setUpButtonClick() {
         donutButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -62,6 +59,16 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+
+        sandwichButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(view.getContext(),SandwichActivity.class);
+                startActivity(intent);
+            }
+        });
+
         cartButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -70,16 +77,13 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        /*
-        donutButton.setOnClickListener(new View.OnClickListener() {
+        orderButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(view.getContext(),DonutActivity.class);
+            public void onClick(View view) {
+                Intent intent = new Intent(view.getContext(),OrdersActivity.class);
                 startActivity(intent);
             }
         });
-
-         */
 
     }
 

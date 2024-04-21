@@ -14,8 +14,6 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.rucafe_androidapp.R;
-
 import java.text.DecimalFormat;
 import java.util.Collections;
 
@@ -52,7 +50,7 @@ public class CartActivity extends AppCompatActivity implements AdapterView.OnIte
         super.onCreate(savedInstanceState);
         setContentView(R.layout.cart_activity);
         cartList = CartList.getInstance();
-        listView = findViewById(R.id.cartListView);
+        listView = findViewById(R.id.orderItemList);
         total = findViewById(R.id.total_cart);
         subtotal = findViewById(R.id.subtotal_cart);
         tax = findViewById(R.id.sales_tax_cart);
@@ -66,7 +64,7 @@ public class CartActivity extends AppCompatActivity implements AdapterView.OnIte
         else {
             Collections.addAll(list, cartList.getItems().toArray(new MenuItem[0]));
         }
-        items = new ArrayAdapter<MenuItem>(this, android.R.layout.simple_list_item_1,list);
+        items = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1,list);
         listView.setAdapter(items);
         listView.setOnItemClickListener(this);
         setUpAddButtonClick();
@@ -108,10 +106,42 @@ public class CartActivity extends AppCompatActivity implements AdapterView.OnIte
                     Toast.makeText(view.getContext(),"No items in cart",Toast.LENGTH_SHORT).show();
                 }
                 else {
+                    Orders globalOrders = Orders.getInstance();
+                    // set current order to match...
+                    globalOrders.currentOrder.setCartContents(cartList.getItems());
+                    System.out.println("cart before placing...");
+                    System.out.println(globalOrders.currentOrder);
+                    globalOrders.placeCurrentOrder();
+
                     Toast.makeText(view.getContext(),"Added to order",Toast.LENGTH_SHORT).show();
+
+                    // refresh everything...
+                    System.out.println("cart after placing...");
+                    System.out.println(globalOrders.currentOrder);
+                    cartList.setCartContents(globalOrders.currentOrder.getItems());
+                    list.clear();
+                    items.notifyDataSetChanged();
+                    // update prices on bottom
+                    updateAll();
+
+                    // debug...
+                    System.out.println("current:");
+                    System.out.println(Orders.getInstance().currentOrder);
+                    System.out.println("previous:");
+                    for (Order o : Orders.getInstance().previousOrders) {
+                        System.out.println("Order "+o.getOrderID()+"'s items");
+                        System.out.println(o);
+                    }
                 }
             }
         });
+    }
+
+
+    public void updateAll() {
+        updateSubtotal();
+        updateTax();
+        updateTotal();
     }
 
     public void updateTotal() {
@@ -127,6 +157,7 @@ public class CartActivity extends AppCompatActivity implements AdapterView.OnIte
         this.tax.setText(formatPrice);
     }
     public void updateSubtotal() {
+        this.current_subtotal = 0;
         DecimalFormat df = new DecimalFormat("#.##");
         for (MenuItem item : this.list) {
             this.current_subtotal+=item.price();

@@ -22,7 +22,7 @@
             android:text="@string/cart_title" />
 
         <ListView
-            android:id="@+id/cartListView"
+            android:id="@+id/orderItemList"
             android:layout_width="match_parent"
             android:layout_height="389dp" />
 

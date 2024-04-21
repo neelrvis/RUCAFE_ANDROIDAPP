@@ -1,7 +1,5 @@
 package com.example.rucafe_androidapp;
 
-import androidx.annotation.NonNull;
-
 public class Donut extends MenuItem{
 
     private String type;

@@ -141,7 +141,7 @@ public class CoffeeActivity extends AppCompatActivity {
                     int quantity = Integer.parseInt(coffee_quantity.getSelectedItem().toString());
                     currentBasePrice = Double.parseDouble(getString(R.string.coffee_size_short_price));
                     //currentSubtotal = quantity * (basePrice + 0.39 * currentAddons.size());
-                    currentSubtotalWithoutQuantity = currentBasePrice + 0.39 * currentAddons.size();
+                    currentSubtotalWithoutQuantity = currentBasePrice + Coffee.addonPrice * currentAddons.size();
                     currentSubtotal = quantity * currentSubtotalWithoutQuantity;
                     String priceString = "$"+df.format(currentSubtotal);
                     subtotal.setText(priceString);
@@ -151,7 +151,7 @@ public class CoffeeActivity extends AppCompatActivity {
                     DecimalFormat df = new DecimalFormat("#.##");
                     int quantity = Integer.parseInt(coffee_quantity.getSelectedItem().toString());
                     currentBasePrice = Double.parseDouble(getString(R.string.coffee_size_tall_price));
-                    currentSubtotalWithoutQuantity = currentBasePrice + 0.39 * currentAddons.size();
+                    currentSubtotalWithoutQuantity = currentBasePrice + Coffee.addonPrice * currentAddons.size();
                     currentSubtotal = quantity * currentSubtotalWithoutQuantity;
                     String priceString = "$"+df.format(currentSubtotal);
                     subtotal.setText(priceString);
@@ -161,7 +161,7 @@ public class CoffeeActivity extends AppCompatActivity {
                     DecimalFormat df = new DecimalFormat("#.##");
                     int quantity = Integer.parseInt(coffee_quantity.getSelectedItem().toString());
                     currentBasePrice = Double.parseDouble(getString(R.string.coffee_size_grande_price));
-                    currentSubtotalWithoutQuantity = currentBasePrice + 0.39 * currentAddons.size();
+                    currentSubtotalWithoutQuantity = currentBasePrice + Coffee.addonPrice * currentAddons.size();
                     currentSubtotal = quantity * currentSubtotalWithoutQuantity;
                     String priceString = "$"+df.format(currentSubtotal);
                     subtotal.setText(priceString);
@@ -171,7 +171,7 @@ public class CoffeeActivity extends AppCompatActivity {
                     DecimalFormat df = new DecimalFormat("#.##");
                     int quantity = Integer.parseInt(coffee_quantity.getSelectedItem().toString());
                     currentBasePrice = Double.parseDouble(getString(R.string.coffee_size_venti_price));
-                    currentSubtotalWithoutQuantity = currentBasePrice + 0.39 * currentAddons.size();
+                    currentSubtotalWithoutQuantity = currentBasePrice + Coffee.addonPrice * currentAddons.size();
                     currentSubtotal = quantity * currentSubtotalWithoutQuantity;
                     String priceString = "$"+df.format(currentSubtotal);
                     subtotal.setText(priceString);
@@ -223,7 +223,7 @@ public class CoffeeActivity extends AppCompatActivity {
         int quantity = Integer.parseInt(coffee_quantity.getSelectedItem().toString());
         if (isChecked) {
             currentAddons.add(addon);
-            currentSubtotalWithoutQuantity+=0.39;
+            currentSubtotalWithoutQuantity+=Coffee.addonPrice;
             //currentSubtotal+=0.39;
             currentSubtotal = quantity * currentSubtotalWithoutQuantity;
             String subtotalString = "$"+df.format(currentSubtotal);
@@ -232,7 +232,7 @@ public class CoffeeActivity extends AppCompatActivity {
             return;
         }
         currentAddons.remove(addon);
-        currentSubtotalWithoutQuantity-=0.39;
+        currentSubtotalWithoutQuantity-=Coffee.addonPrice;
         currentSubtotal = quantity * currentSubtotalWithoutQuantity;
         String subtotalString = "$"+df.format(currentSubtotal);
         subtotal.setText(subtotalString);

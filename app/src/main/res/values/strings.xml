@@ -1,8 +1,13 @@
 <resources>
     <string name="app_name">RUCAFE_ANDROIDAPP</string>
     <string name="ru_cafe_title">RU Cafe</string>
+    <string name="ru_cafe_subtitle">by Neel Viswanathan, Tadhg Jarzebowski</string>
     <string name="order_items_view">Order</string>
     <string name="donut_title_view">Donuts</string>
+    <string name="coffee_title_view">Coffee</string>
+    <string name="sandwich_title_view">Sandwiches</string>
+    <string name="cart_title_view">Cart</string>
+    <string name="orders_title_view">Orders</string>
     <string name="donut_type">TextView</string>
     <string name="donut_type_select">Select Type</string>
     <string name="yeast_donut_type">Yeast</string>
@@ -87,7 +92,7 @@
         <item>Grande</item>
         <item>Venti</item>
     </string-array>
-    
+
     <string-array name="coffee_addons">
         <item>Sweet cream</item>
         <item>French vanilla</item>
@@ -123,6 +128,50 @@
     <string name="order">Order</string>
     <string name="tax">0.06625</string>
 
+    <string name="sandwich_page_title">Order a sandwich</string>
+    <string name="bread_label">Bread</string>
+    <string name="protein_label">Protein</string>
+    <string name="sandwich_addons_label">Addons</string>
+
+    <string-array name="bread_types">
+        <item>Bagel</item>
+        <item>Wheat toast</item>
+        <item>Sour dough</item>
+    </string-array>
+
+    <string-array name="protein_types">
+        <item>Chicken</item>
+        <item>Fish</item>
+        <item>Beef</item>
+    </string-array>
+
+    <string-array name="protein_prices">
+        <item>8.99</item>
+        <item>9.99</item>
+        <item>10.99</item>
+    </string-array>
+
+    <string-array name="sandwich_addons">
+        <item>Lettuce</item>
+        <item>Tomatoes</item>
+        <item>Onions</item>
+        <item>Cheese</item>
+    </string-array>
+
+    <string-array name="sandwich_addon_price">
+        <item>0.30</item>
+        <item>0.30</item>
+        <item>0.30</item>
+        <item>1.00</item>
+    </string-array>
+
+    <string name="order_number_label">Selected Order</string>
+    <string name="order_list_label">Order Items</string>
+    <string name="order_total_label">Order Amount</string>
+    <string name="order_cancel_order_label">Cancel this order</string>
+    <string name="order_export_order_label">Export all orders</string>
+
+    <string name="default_price">$0.00</string>
 
 
 

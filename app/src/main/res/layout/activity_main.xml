@@ -5,108 +5,125 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/red"
     tools:context=".MainActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
         <TextView
             android:id="@+id/ru_cafe_tile"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="16sp"
+            android:fontFamily="@font/inter_medium"
             android:text="@string/ru_cafe_title"
-            android:textAlignment="center"
+            android:textAlignment="viewStart"
             android:textColor="@color/black"
             android:textSize="40sp"
+            android:typeface="normal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <ImageView
-            android:id="@+id/ru_cafe_image"
+        <TextView
+            android:id="@+id/textView"
             android:layout_width="match_parent"
-            android:layout_height="150dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="50dp"
-            android:scaleType="fitCenter"
-            app:srcCompat="@drawable/ru_cafe" />
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/inter"
+            android:text="@string/ru_cafe_subtitle"
+            android:textSize="14sp" />
 
         <TextView
             android:id="@+id/order_prompt_main"
+            style="@style/allcaps_label"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="40sp"
+            android:layout_marginBottom="10dp"
+            android:fontFamily="@font/inter"
             android:text="@string/order_items_view"
-            android:textAlignment="center"
-            android:textSize="25sp"
-            android:layout_marginBottom="20dp"
-            />
+            android:textAlignment="viewStart" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginBottom="100dp"
-            >
+            android:orientation="vertical">
 
-            <ImageButton
+            <Button
                 android:id="@+id/donut_btn"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                app:srcCompat="@drawable/apple_donut"
-                android:layout_weight="1"
-                android:scaleType="fitCenter"/>
+                style="@style/Widget.AppCompat.Button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableStart="@drawable/android_donut_icon"
+                android:drawablePadding="15sp"
+                android:text="@string/donut_title_view"
+                android:textAlignment="viewStart" />
 
-            <ImageButton
+            <Button
                 android:id="@+id/coffee_btn"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                app:srcCompat="@drawable/apple_coffee"
-                android:layout_weight="1"
-                android:scaleType="fitCenter"/>
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableStart="@drawable/android_coffee_icon"
+                android:drawablePadding="15sp"
+                android:text="@string/coffee_title_view"
+                android:textAlignment="viewStart" />
 
-            <ImageButton
+            <Button
                 android:id="@+id/sandwich_btn"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:src="@drawable/apple_sandwich"
-                android:layout_weight="1"
-                android:scaleType="fitCenter"/>
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableStart="@drawable/android_sandwich_icon"
+                android:drawablePadding="15sp"
+                android:text="@string/sandwich_title_view"
+                android:textAlignment="viewStart" />
+
         </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:orientation="horizontal" />
 
         <TextView
             android:id="@+id/view_cart_orders_main"
+            style="@style/allcaps_label"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:fontFamily="@font/inter"
             android:text="@string/view_cart_orders_title"
-            android:textAlignment="center"
-            android:textSize="25sp"
-            android:layout_marginBottom="20dp"
-            />
+            android:textAlignment="viewStart" />
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginBottom="20dp">
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-            <ImageButton
+            <Button
                 android:id="@+id/cart_btn"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_weight="1"
-                android:scaleType="fitCenter"
-                app:srcCompat="@drawable/apple_cart" />
+                style="@style/Widget.AppCompat.Button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableStart="@drawable/android_cart_icon"
+                android:drawablePadding="15sp"
+                android:text="@string/cart_title_view"
+                android:textAlignment="viewStart" />
 
-            <ImageButton
+            <Button
                 android:id="@+id/orders_btn"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                app:srcCompat="@drawable/apple_list"
-                android:layout_weight="1"
-                android:scaleType="fitCenter"/>
-
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableStart="@drawable/android_orders_icon"
+                android:drawablePadding="15sp"
+                android:text="@string/orders_title_view"
+                android:textAlignment="viewStart" />
 
         </LinearLayout>
 

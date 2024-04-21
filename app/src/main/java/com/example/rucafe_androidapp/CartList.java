@@ -21,6 +21,11 @@ public final class CartList{
     public void addItem(MenuItem item) {
         this.items.add(item);
     }
+
+    public void setCartContents(ArrayList<MenuItem> input) {
+        this.items = input;
+    }
+
     public ArrayList<MenuItem> getItems() {
         return this.items;
     }

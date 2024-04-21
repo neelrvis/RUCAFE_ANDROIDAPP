@@ -6,7 +6,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -14,7 +13,6 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
@@ -64,7 +62,6 @@ class DonutOptionsAdapter extends RecyclerView.Adapter<DonutOptionsAdapter.Donut
         private TextView donut_type;
         private Spinner donut_quantity;
         private Button add_btn;
-        private ArrayList<Donut> donutsInCart;
         private ConstraintLayout parentLayout;
 
         public DonutOptionsHolder(@NonNull View itemView) {
@@ -78,12 +75,6 @@ class DonutOptionsAdapter extends RecyclerView.Adapter<DonutOptionsAdapter.Donut
             add_btn = itemView.findViewById(R.id.add_btn);
             setAddButtonOnClick(itemView);
 
-            /*
-            donutQuantityAdapter = new ArrayAdapter<>(itemView.getContext(), androidx.appcompat.R.layout.support_simple_spinner_dropdown_item,
-                    itemView.getResources().getStringArray(R.array.donut_quantity_selection));
-            donut_quantity.setAdapter(donutQuantityAdapter);
-
-             */
             donut_quantity.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                 @Override
                 public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {

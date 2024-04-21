@@ -19,6 +19,11 @@ public final class OrdersList {
     public void addOrder(ArrayList<MenuItem> order) {
         this.orders.add(order);
     }
+
+    public void removeOrderByID(int orderID) {
+
+    }
+
     public ArrayList<ArrayList<MenuItem>> getOrders() {
         return this.orders;
     }
