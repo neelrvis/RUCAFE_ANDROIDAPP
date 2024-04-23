@@ -2,9 +2,10 @@ package com.example.rucafe_androidapp;
 
 /**
  * Enum class that describes protein selection of sandwich
+ * 
+ * @author Tadhg
  */
 public enum SandwichProtein {
-
 
     /**
      * Beef: $10.99
@@ -26,9 +27,9 @@ public enum SandwichProtein {
      */
     private final double price;
 
-
     /**
      * Enum constructor. Initializes the price for particular SandwichProtein enum
+     * 
      * @param price price of sandwich protein
      */
     private SandwichProtein(double price) {
@@ -37,6 +38,7 @@ public enum SandwichProtein {
 
     /**
      * Returns the price of selected sandwich protein
+     * 
      * @return price of sandwich protein
      */
     public double getPrice() {
@@ -45,6 +47,7 @@ public enum SandwichProtein {
 
     /**
      * Returns the matching enum given a string.
+     * 
      * @param input string matching on of the enums
      * @return matching Sandwich enum or null if not found
      */
@@ -64,10 +67,11 @@ public enum SandwichProtein {
 
     /**
      * Returns formatted string of SandwichProtein enum
+     * 
      * @return string representation of SandwichProtein enum
      */
     @Override
     public String toString() {
-        return this.name().substring(0,1).toUpperCase() + this.name().substring(1).toLowerCase();
+        return this.name().substring(0, 1).toUpperCase() + this.name().substring(1).toLowerCase();
     }
 }

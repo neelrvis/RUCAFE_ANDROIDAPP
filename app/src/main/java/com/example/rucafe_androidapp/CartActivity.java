@@ -19,32 +19,63 @@ import java.util.Collections;
 
 /**
  * An example to demonstrate how an ObservableList can be used in a ListView.
- * @author Lily Chang
+ * 
+ * @author Neel, Tadhg
  */
 public class CartActivity extends AppCompatActivity implements AdapterView.OnItemClickListener {
+
+    /**
+     * reference to the ListView in the layout
+     */
     private ListView listView;
 
-    private TextView total;
+    /**
+     * reference to all TextViews in the layout
+     */
+    private TextView total, tax, subtotal;
 
-    private TextView tax;
-
-    private TextView subtotal;
-
+    /**
+     * reference to the "add to order" button in the layout
+     */
     private Button add_btn;
 
+    /**
+     * data for list
+     */
     private ObservableArrayList<MenuItem> list;
+    /**
+     * instance of cartList
+     */
     private CartList cartList;
+
+    /**
+     * adapter for list items
+     */
     private ArrayAdapter<MenuItem> items;
 
+    /**
+     * constant tax number
+     */
     private double nj_sales_tax;
 
+    /**
+     * local vars for prices
+     */
     private double current_subtotal = 0;
-
+    /**
+     * local vars for prices
+     */
     private double current_total = 0;
-
+    /**
+     * local vars for prices
+     */
     private double current_tax = 0;
 
-
+    /**
+     * creates the CartActivity
+     * 
+     * @param savedInstanceState (unused)
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -60,11 +91,10 @@ public class CartActivity extends AppCompatActivity implements AdapterView.OnIte
 
         if (cartList.getItems().isEmpty()) {
             Collections.addAll(list);
-        }
-        else {
+        } else {
             Collections.addAll(list, cartList.getItems().toArray(new MenuItem[0]));
         }
-        items = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1,list);
+        items = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, list);
         listView.setAdapter(items);
         listView.setOnItemClickListener(this);
         setUpAddButtonClick();
@@ -73,7 +103,14 @@ public class CartActivity extends AppCompatActivity implements AdapterView.OnIte
         updateTotal();
     }
 
-
+    /**
+     * handles click of item in cart (so it gets removed)
+     * 
+     * @param adapterView adapter context
+     * @param view        view context
+     * @param i           index
+     * @param l           unused
+     */
     @Override
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
         AlertDialog.Builder alert = new AlertDialog.Builder(this);
@@ -87,25 +124,28 @@ public class CartActivity extends AppCompatActivity implements AdapterView.OnIte
                 updateSubtotal();
                 updateTax();
                 updateTotal();
-                Toast.makeText(view.getContext(),"Item removed",Toast.LENGTH_SHORT).show();
+                Toast.makeText(view.getContext(), "Item removed", Toast.LENGTH_SHORT).show();
             }
         }).setNegativeButton("NO", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                Toast.makeText(view.getContext(),"Item not removed",Toast.LENGTH_SHORT).show();
+                Toast.makeText(view.getContext(), "Item not removed", Toast.LENGTH_SHORT).show();
             }
         });
         AlertDialog dialog = alert.create();
         dialog.show();
     }
+
+    /**
+     * sets up the "add to order" button click listener
+     */
     public void setUpAddButtonClick() {
         add_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if (list.isEmpty()) {
-                    Toast.makeText(view.getContext(),"No items in cart",Toast.LENGTH_SHORT).show();
-                }
-                else {
+                    Toast.makeText(view.getContext(), "No items in cart", Toast.LENGTH_SHORT).show();
+                } else {
                     Orders globalOrders = Orders.getInstance();
                     // set current order to match...
                     globalOrders.currentOrder.setCartContents(cartList.getItems());
@@ -113,7 +153,7 @@ public class CartActivity extends AppCompatActivity implements AdapterView.OnIte
                     System.out.println(globalOrders.currentOrder);
                     globalOrders.placeCurrentOrder();
 
-                    Toast.makeText(view.getContext(),"Added to order",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(view.getContext(), "Added to order", Toast.LENGTH_SHORT).show();
 
                     // refresh everything...
                     System.out.println("cart after placing...");
@@ -129,7 +169,7 @@ public class CartActivity extends AppCompatActivity implements AdapterView.OnIte
                     System.out.println(Orders.getInstance().currentOrder);
                     System.out.println("previous:");
                     for (Order o : Orders.getInstance().previousOrders) {
-                        System.out.println("Order "+o.getOrderID()+"'s items");
+                        System.out.println("Order " + o.getOrderID() + "'s items");
                         System.out.println(o);
                     }
                 }
@@ -137,32 +177,45 @@ public class CartActivity extends AppCompatActivity implements AdapterView.OnIte
         });
     }
 
-
+    /**
+     * updates prices on display based on cart content
+     */
     public void updateAll() {
         updateSubtotal();
         updateTax();
         updateTotal();
     }
 
+    /**
+     * updates the total price on the display
+     */
     public void updateTotal() {
         DecimalFormat df = new DecimalFormat("#.##");
         this.current_total = this.current_subtotal + this.current_tax;
-        String formatPrice = "$"+df.format(this.current_total);
+        String formatPrice = "$" + df.format(this.current_total);
         this.total.setText(formatPrice);
     }
+
+    /**
+     * updates the tax price on the display
+     */
     public void updateTax() {
         DecimalFormat df = new DecimalFormat("#.##");
         this.current_tax = this.current_subtotal * this.nj_sales_tax;
-        String formatPrice = "$"+df.format(this.current_tax);
+        String formatPrice = "$" + df.format(this.current_tax);
         this.tax.setText(formatPrice);
     }
+
+    /**
+     * updates the subtotal price on the display
+     */
     public void updateSubtotal() {
         this.current_subtotal = 0;
         DecimalFormat df = new DecimalFormat("#.##");
         for (MenuItem item : this.list) {
-            this.current_subtotal+=item.price();
+            this.current_subtotal += item.price();
         }
-        String formatPrice = "$"+df.format(this.current_subtotal);
+        String formatPrice = "$" + df.format(this.current_subtotal);
         this.subtotal.setText(formatPrice);
     }
 }

@@ -18,15 +18,33 @@ import android.widget.RadioButton;
 import android.widget.Button;
 import android.widget.Toast;
 
-
+/**
+ * SandwichActivity class for xml
+ * 
+ * @author Tadhg
+ */
 public class SandwichActivity extends AppCompatActivity {
 
+    /**
+     * defines the radio group for bread
+     */
     private RadioGroup breadGroup, proteinGroup;
 
+    /**
+     * defines the "add to cart" button
+     */
     private Button addSandwichToCart;
 
+    /**
+     * keeps track of the sandwich currently selected by the UI
+     */
     private Sandwich localSandwich;
 
+    /**
+     * creates the sandwich activity
+     * 
+     * @param savedInstanceState the saved instance state
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,6 +58,12 @@ public class SandwichActivity extends AppCompatActivity {
         updatePriceDisplay();
     }
 
+    /**
+     * sets up a general list of radio group buttons
+     * 
+     * @param radioGroupID
+     * @param radioGroupArray
+     */
     private void setupRadioGroupButtons(int radioGroupID, int radioGroupArray) {
         RadioGroup radioGroup = findViewById(radioGroupID);
 
@@ -50,7 +74,7 @@ public class SandwichActivity extends AppCompatActivity {
 
         // get array and add things
         String[] text_array = getResources().getStringArray(radioGroupArray);
-        for (int i = 0; i < text_array.length; i++ ) {
+        for (int i = 0; i < text_array.length; i++) {
             String this_str = text_array[i];
             RadioButton rb = new RadioButton(this);
 
@@ -64,8 +88,7 @@ public class SandwichActivity extends AppCompatActivity {
             // Set layout parameters to make the radio button fill its container width
             RadioGroup.LayoutParams layoutParams = new RadioGroup.LayoutParams(
                     RadioGroup.LayoutParams.MATCH_PARENT,
-                    RadioGroup.LayoutParams.WRAP_CONTENT
-            );
+                    RadioGroup.LayoutParams.WRAP_CONTENT);
             rb.setLayoutParams(layoutParams);
 
             radioGroup.addView(rb);
@@ -78,6 +101,9 @@ public class SandwichActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * sets up the bread radio group and listeners
+     */
     private void setupBreadRadio() {
         setupRadioGroupButtons(R.id.breadGroup, R.array.bread_types);
 
@@ -98,6 +124,9 @@ public class SandwichActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * sets up the protein radio group and listeners
+     */
     private void setupProteinRadio() {
         setupRadioGroupButtons(R.id.proteinGroup, R.array.protein_types);
 
@@ -119,6 +148,12 @@ public class SandwichActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * sets up the checkboxes for addons
+     * 
+     * @param viewID      id for the view
+     * @param textArrayID id for the text array
+     */
     private void setupCheckboxes(int viewID, int textArrayID) {
         LinearLayout container = findViewById(viewID);
 
@@ -129,7 +164,7 @@ public class SandwichActivity extends AppCompatActivity {
 
         // get array and add things
         String[] text_array = getResources().getStringArray(textArrayID);
-        for (int i = 0; i < text_array.length; i++ ) {
+        for (int i = 0; i < text_array.length; i++) {
             String this_str = text_array[i];
             CheckBox cb = new CheckBox(this);
 
@@ -153,10 +188,16 @@ public class SandwichActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * sets up the addons
+     */
     private void setupAddons() {
         setupCheckboxes(R.id.orderItemListContainer, R.array.sandwich_addons);
     }
 
+    /**
+     * checks the addons, sets the local sandwich addons, and updates the price
+     */
     private void checkAddons() {
         // for each addon in addonList...
         LinearLayout container = findViewById(R.id.orderItemListContainer);
@@ -190,6 +231,9 @@ public class SandwichActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * updates the price display
+     */
     private void updatePriceDisplay() {
         // get price of localSandwich and update UI
         TextView label = findViewById(R.id.orderTotalDisplay);
@@ -197,6 +241,9 @@ public class SandwichActivity extends AppCompatActivity {
         label.setWidth(300); // this is stupid but it's here
     }
 
+    /**
+     * listens for "add to order" button
+     */
     private void setOrderListener() {
         addSandwichToCart = findViewById(R.id.cancelThisOrder);
 
@@ -208,25 +255,31 @@ public class SandwichActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * adds the sandwich to the order
+     * 
+     * @param v
+     */
     private void addSandwichToOrder(View v) {
         CartList cartList = CartList.getInstance();
 
         // setup alert
         AlertDialog.Builder alert = new AlertDialog.Builder(v.getContext());
         alert.setTitle("Are you sure you want to order this sandwich?");
-        alert.setMessage("Price: $"+String.format("%.2f", localSandwich.price()));
+        alert.setMessage("Price: $" + String.format("%.2f", localSandwich.price()));
 
         // deal with alert
         alert.setPositiveButton("YES", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 cartList.addItem(localSandwich);
-                Toast.makeText(v.getContext(),"items in cart: "+cartList.getItems().size(),Toast.LENGTH_SHORT).show();
+                Toast.makeText(v.getContext(), "items in cart: " + cartList.getItems().size(), Toast.LENGTH_SHORT)
+                        .show();
             }
         }).setNegativeButton("NO", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                Toast.makeText(v.getContext(),"not added",Toast.LENGTH_SHORT).show();
+                Toast.makeText(v.getContext(), "not added", Toast.LENGTH_SHORT).show();
             }
         });
         AlertDialog dialog = alert.create();

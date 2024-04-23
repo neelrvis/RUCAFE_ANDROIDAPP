@@ -28,30 +28,68 @@ import android.widget.Toast;
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;
+
+/**
+ * Creates the view for the coffee activity
+ * 
+ * @author Neel
+ */
 public class CoffeeActivity extends AppCompatActivity {
 
-    private CheckBox sweet_cream;
-    private CheckBox french_vanilla;
-    private CheckBox irish_cream;
-    private CheckBox caramel;
-    private CheckBox mocha;
+    /**
+     * defines the checkboxes for addons
+     */
+    private CheckBox sweet_cream, french_vanilla, irish_cream, caramel, mocha;
 
+    /**
+     * defines the radio group for sizes
+     */
     private RadioGroup sizes_radioGroup;
-    private RadioButton short_radio;
-    private RadioButton tall_radio;
-    private RadioButton grande_radio;
-    private RadioButton venti_radio;
+
+    /**
+     * defines the radio buttons for sizes
+     */
+    private RadioButton short_radio, tall_radio, grande_radio, venti_radio;
+    /**
+     * defines the "add to cart" button
+     */
     private Button add_btn;
 
+    /**
+     * instance of cartList
+     */
     private CartList cartList;
+
+    /**
+     * defines the spinner for coffee quantity
+     */
     private TextView subtotal;
+
+    /**
+     * defines the text view for the subtotal
+     */
     private Spinner coffee_quantity;
 
+    /**
+     * keeps track of the current subtotal
+     */
     private double currentSubtotal;
+    /**
+     * keeps track of the current base price
+     */
     private double currentBasePrice;
+    /**
+     * keeps track of the current subtotal without quantity
+     */
     private double currentSubtotalWithoutQuantity;
+    /**
+     * keeps track of the current addons
+     */
     private ArrayList<String> currentAddons;
 
+    /**
+     * Creates the view for the coffee activity
+     */
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -75,15 +113,17 @@ public class CoffeeActivity extends AppCompatActivity {
         setCoffeeQuantityOnSelect();
         currentAddons = new ArrayList<>();
         subtotal = findViewById(R.id.coffee_price);
-        String initialPrice = "$"+getString(R.string.coffee_size_short_price);
+        String initialPrice = "$" + getString(R.string.coffee_size_short_price);
         subtotal.setText(initialPrice);
         currentBasePrice = Double.parseDouble(getString(R.string.coffee_size_short_price));
-        currentSubtotal = currentSubtotalWithoutQuantity = Double.parseDouble(getString(R.string.coffee_size_short_price));
-
+        currentSubtotal = currentSubtotalWithoutQuantity = Double
+                .parseDouble(getString(R.string.coffee_size_short_price));
 
     }
 
-
+    /**
+     * Sets the onClickListener for the add button
+     */
     public void setAddButtonOnClick() {
         add_btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -93,45 +133,53 @@ public class CoffeeActivity extends AppCompatActivity {
                 RadioButton selected = findViewById(radioButtonId);
                 String size = selected.getText().toString();
                 int quantity = Integer.parseInt(coffee_quantity.getSelectedItem().toString());
-                Coffee coffeeToAdd = new Coffee(size,currentAddons,currentBasePrice,quantity);
+                Coffee coffeeToAdd = new Coffee(size, currentAddons, currentBasePrice, quantity);
                 AlertDialog.Builder alert = new AlertDialog.Builder(view.getContext());
                 alert.setTitle("Are you sure you want to order this item?");
 
-                alert.setMessage("Price: $"+df.format(coffeeToAdd.price()));
+                alert.setMessage("Price: $" + df.format(coffeeToAdd.price()));
                 alert.setPositiveButton("YES", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
 
                         cartList.addItem(coffeeToAdd);
-                        Toast.makeText(view.getContext(),"items in cart: "+cartList.getItems().size(),Toast.LENGTH_SHORT).show();
+                        Toast.makeText(view.getContext(), "items in cart: " + cartList.getItems().size(),
+                                Toast.LENGTH_SHORT).show();
                     }
                 }).setNegativeButton("NO", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        Toast.makeText(view.getContext(),"not added",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(view.getContext(), "not added", Toast.LENGTH_SHORT).show();
                     }
                 });
                 AlertDialog dialog = alert.create();
                 dialog.show();
-
-
             }
         });
     }
+
+    /**
+     * Sets the onItemSelectedListener for the coffee quantity spinner
+     */
     public void setCoffeeQuantityOnSelect() {
         coffee_quantity.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 int quantity = Integer.parseInt(parent.getItemAtPosition(position).toString());
                 currentSubtotal = quantity * currentSubtotalWithoutQuantity;
-                String subtotalString = "$"+currentSubtotal;
+                String subtotalString = "$" + currentSubtotal;
                 subtotal.setText(subtotalString);
             }
+
             @Override
-            public void onNothingSelected(AdapterView<?> parent) {}
+            public void onNothingSelected(AdapterView<?> parent) {
+            }
         });
     }
 
+    /**
+     * Sets the onCheckedChangeListener for the radio group
+     */
     public void setRadioGroupOnSelect() {
         sizes_radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
@@ -140,106 +188,106 @@ public class CoffeeActivity extends AppCompatActivity {
                     DecimalFormat df = new DecimalFormat("#.##");
                     int quantity = Integer.parseInt(coffee_quantity.getSelectedItem().toString());
                     currentBasePrice = Double.parseDouble(getString(R.string.coffee_size_short_price));
-                    //currentSubtotal = quantity * (basePrice + 0.39 * currentAddons.size());
+                    // currentSubtotal = quantity * (basePrice + 0.39 * currentAddons.size());
                     currentSubtotalWithoutQuantity = currentBasePrice + Coffee.addonPrice * currentAddons.size();
                     currentSubtotal = quantity * currentSubtotalWithoutQuantity;
-                    String priceString = "$"+df.format(currentSubtotal);
+                    String priceString = "$" + df.format(currentSubtotal);
                     subtotal.setText(priceString);
-                    Toast.makeText(getApplicationContext(),priceString,Toast.LENGTH_SHORT).show();
-                }
-                else if(checkedId == R.id.tall_radio) {
+                    Toast.makeText(getApplicationContext(), priceString, Toast.LENGTH_SHORT).show();
+                } else if (checkedId == R.id.tall_radio) {
                     DecimalFormat df = new DecimalFormat("#.##");
                     int quantity = Integer.parseInt(coffee_quantity.getSelectedItem().toString());
                     currentBasePrice = Double.parseDouble(getString(R.string.coffee_size_tall_price));
                     currentSubtotalWithoutQuantity = currentBasePrice + Coffee.addonPrice * currentAddons.size();
                     currentSubtotal = quantity * currentSubtotalWithoutQuantity;
-                    String priceString = "$"+df.format(currentSubtotal);
+                    String priceString = "$" + df.format(currentSubtotal);
                     subtotal.setText(priceString);
-                    Toast.makeText(getApplicationContext(),priceString,Toast.LENGTH_SHORT).show();
-                }
-                else if(checkedId == R.id.grande_radio) {
+                    Toast.makeText(getApplicationContext(), priceString, Toast.LENGTH_SHORT).show();
+                } else if (checkedId == R.id.grande_radio) {
                     DecimalFormat df = new DecimalFormat("#.##");
                     int quantity = Integer.parseInt(coffee_quantity.getSelectedItem().toString());
                     currentBasePrice = Double.parseDouble(getString(R.string.coffee_size_grande_price));
                     currentSubtotalWithoutQuantity = currentBasePrice + Coffee.addonPrice * currentAddons.size();
                     currentSubtotal = quantity * currentSubtotalWithoutQuantity;
-                    String priceString = "$"+df.format(currentSubtotal);
+                    String priceString = "$" + df.format(currentSubtotal);
                     subtotal.setText(priceString);
-                    Toast.makeText(getApplicationContext(),priceString,Toast.LENGTH_SHORT).show();
-                }
-                else {
+                    Toast.makeText(getApplicationContext(), priceString, Toast.LENGTH_SHORT).show();
+                } else {
                     DecimalFormat df = new DecimalFormat("#.##");
                     int quantity = Integer.parseInt(coffee_quantity.getSelectedItem().toString());
                     currentBasePrice = Double.parseDouble(getString(R.string.coffee_size_venti_price));
                     currentSubtotalWithoutQuantity = currentBasePrice + Coffee.addonPrice * currentAddons.size();
                     currentSubtotal = quantity * currentSubtotalWithoutQuantity;
-                    String priceString = "$"+df.format(currentSubtotal);
+                    String priceString = "$" + df.format(currentSubtotal);
                     subtotal.setText(priceString);
-                    Toast.makeText(getApplicationContext(),priceString,Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), priceString, Toast.LENGTH_SHORT).show();
 
                 }
             }
         });
     }
 
-
-
+    /**
+     * Sets the onCheckedChangeListener for (all) the checkboxes
+     */
     public void setCheckBoxOnSelect() {
         sweet_cream.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-               handleClickCheckBox(isChecked,sweet_cream.getText().toString());
-                //Toast.makeText(getApplicationContext(),"sweet cream unchecked",Toast.LENGTH_SHORT).show();
+                handleClickCheckBox(isChecked, sweet_cream.getText().toString());
+                // Toast.makeText(getApplicationContext(),"sweet cream
+                // unchecked",Toast.LENGTH_SHORT).show();
             }
         });
         french_vanilla.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                handleClickCheckBox(isChecked,french_vanilla.getText().toString());
+                handleClickCheckBox(isChecked, french_vanilla.getText().toString());
             }
         });
         irish_cream.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-               handleClickCheckBox(isChecked,irish_cream.getText().toString());
+                handleClickCheckBox(isChecked, irish_cream.getText().toString());
             }
         });
         caramel.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                handleClickCheckBox(isChecked,caramel.getText().toString());
+                handleClickCheckBox(isChecked, caramel.getText().toString());
             }
         });
         mocha.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                handleClickCheckBox(isChecked,mocha.getText().toString());
+                handleClickCheckBox(isChecked, mocha.getText().toString());
             }
         });
     }
 
+    /**
+     * Handles the checkbox click
+     * 
+     * @param isChecked whether the checkbox is checked
+     * @param addon     the addon (String)
+     */
     public void handleClickCheckBox(boolean isChecked, String addon) {
         DecimalFormat df = new DecimalFormat("#.##");
         int quantity = Integer.parseInt(coffee_quantity.getSelectedItem().toString());
         if (isChecked) {
             currentAddons.add(addon);
-            currentSubtotalWithoutQuantity+=Coffee.addonPrice;
-            //currentSubtotal+=0.39;
+            currentSubtotalWithoutQuantity += Coffee.addonPrice;
+            // currentSubtotal+=0.39;
             currentSubtotal = quantity * currentSubtotalWithoutQuantity;
-            String subtotalString = "$"+df.format(currentSubtotal);
+            String subtotalString = "$" + df.format(currentSubtotal);
             subtotal.setText(subtotalString);
-            //Toast.makeText(getApplicationContext(),subtotalString,Toast.LENGTH_SHORT).show();
+            // Toast.makeText(getApplicationContext(),subtotalString,Toast.LENGTH_SHORT).show();
             return;
         }
         currentAddons.remove(addon);
-        currentSubtotalWithoutQuantity-=Coffee.addonPrice;
+        currentSubtotalWithoutQuantity -= Coffee.addonPrice;
         currentSubtotal = quantity * currentSubtotalWithoutQuantity;
-        String subtotalString = "$"+df.format(currentSubtotal);
+        String subtotalString = "$" + df.format(currentSubtotal);
         subtotal.setText(subtotalString);
     }
-
-    private void handleRadioButton() {
-
-    }
-
 }

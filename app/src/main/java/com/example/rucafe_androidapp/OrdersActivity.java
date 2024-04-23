@@ -15,19 +15,43 @@ import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+/**
+ * OrdersActivity class for xml
+ * 
+ * @author Tadhg
+ */
 public class OrdersActivity extends AppCompatActivity {
 
+    /**
+     * button to cancel order
+     */
     Button cancelOrderButton;
 
+    /**
+     * textview to display total of order
+     */
     TextView orderItemsTotal;
 
+    /**
+     * spinner to select order
+     */
     Spinner selectedOrderSpinner;
 
+    /**
+     * listview to display items in order
+     */
     ListView orderItemList;
 
+    /**
+     * ID of selected order
+     */
     private int selectedOrderID;
 
-
+    /**
+     * creates the activity
+     * 
+     * @param savedInstanceState (for superclass)
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,7 +61,6 @@ public class OrdersActivity extends AppCompatActivity {
         orderItemsTotal = findViewById(R.id.orderTotalDisplay);
         selectedOrderSpinner = findViewById(R.id.selectedOrderSpinner);
         orderItemList = findViewById(R.id.orderItemList);
-
 
         selectedOrderID = -1;
 
@@ -55,12 +78,16 @@ public class OrdersActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onNothingSelected(AdapterView<?> parent) { }
+            public void onNothingSelected(AdapterView<?> parent) {
+            }
         });
         // start listener for "cancel"
         setupListeners();
     }
 
+    /**
+     * updates the spinner options based on Orders
+     */
     private void updateSpinnerOptions() {
         Orders currOrds = Orders.getInstance();
         ArrayList<Order> orders = currOrds.getPreviousOrders();
@@ -76,12 +103,16 @@ public class OrdersActivity extends AppCompatActivity {
         selectedOrderSpinner.setAdapter(spinnerAdapter);
     }
 
+    /**
+     * populates the list of items in the selected order
+     */
     private void populateList() {
         // deals with list
         if (selectedOrderID == -1) {
             // nothing is selected, clear the list...
             ArrayList<MenuItem> itemsOfOrder = new ArrayList<>();
-            ArrayAdapter<MenuItem> listAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1,itemsOfOrder);
+            ArrayAdapter<MenuItem> listAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1,
+                    itemsOfOrder);
             listAdapter.setDropDownViewResource(android.R.layout.simple_list_item_1);
             orderItemList.setAdapter(listAdapter);
             orderItemsTotal.setText(R.string.default_price);
@@ -94,38 +125,39 @@ public class OrdersActivity extends AppCompatActivity {
             System.out.println("items in selected order");
             System.out.println(itemsOfOrder);
 
-            ArrayAdapter<MenuItem> listAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1,itemsOfOrder);
+            ArrayAdapter<MenuItem> listAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1,
+                    itemsOfOrder);
             listAdapter.setDropDownViewResource(android.R.layout.simple_list_item_1);
             orderItemList.setAdapter(listAdapter);
 
-
             // updates price label
             orderItemsTotal.setText(String.format("%.2f", specificOrder.getTotal()));
-        }
-        catch (IndexOutOfBoundsException e) {
-//            System.out.println("Index out of bounds:");
-//            System.out.println(e);
+        } catch (IndexOutOfBoundsException e) {
             // n
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             // other error
-//            System.out.println(e);
         }
     }
 
+    /**
+     * sets up listeners for the activity (cancel button)
+     */
     private void setupListeners() {
         cancelOrderButton.setOnClickListener(new View.OnClickListener() {
-           @Override
-           public void onClick(View v) {
-               cancelCurrentOrder();
-           }
+            @Override
+            public void onClick(View v) {
+                cancelCurrentOrder();
+            }
         });
     }
 
+    /**
+     * Tells Orders to cancel the current order, updates UI
+     */
     private void cancelCurrentOrder() {
         // check if order ID is not -1
         if (selectedOrderID == -1) {
-            Toast.makeText(getApplicationContext(),"No orders to cancel",Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "No orders to cancel", Toast.LENGTH_SHORT).show();
             return;
         }
         try {
@@ -134,14 +166,13 @@ public class OrdersActivity extends AppCompatActivity {
                 selectedOrderID = -1;
                 updateSpinnerOptions();
                 populateList();
-                Toast.makeText(getApplicationContext(),"Order #"+prevSelectedOrderID+" cancelled",Toast.LENGTH_SHORT).show();
-            }
-            else {
+                Toast.makeText(getApplicationContext(), "Order #" + prevSelectedOrderID + " cancelled",
+                        Toast.LENGTH_SHORT).show();
+            } else {
                 Toast.makeText(getApplicationContext(), "Couldn't cancel the order", Toast.LENGTH_SHORT).show();
             }
-        }
-        catch (Exception e) {
-            Toast.makeText(getApplicationContext(),"Couldn't cancel the order",Toast.LENGTH_SHORT).show();
+        } catch (Exception e) {
+            Toast.makeText(getApplicationContext(), "Couldn't cancel the order", Toast.LENGTH_SHORT).show();
             // ...
         }
     }

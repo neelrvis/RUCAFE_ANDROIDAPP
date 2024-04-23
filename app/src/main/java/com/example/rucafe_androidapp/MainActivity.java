@@ -12,16 +12,23 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+/**
+ * MainActivity class for xml
+ * 
+ * @author Neel, Tadhg
+ */
 public class MainActivity extends AppCompatActivity {
 
-    Button donutButton;
-    Button coffeeButton;
-    Button sandwichButton;
-    Button cartButton;
-    Button orderButton;
+    /**
+     * defines buttons
+     */
+    Button donutButton, coffeeButton, sandwichButton, cartButton, orderButton;
 
-
-
+    /**
+     * creates the main activity
+     * 
+     * @param savedInstanceState the saved instance state
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,27 +51,28 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * listens for UI button clicks
+     */
     public void setUpButtonClick() {
         donutButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(view.getContext(),DonutActivity.class);
+                Intent intent = new Intent(view.getContext(), DonutActivity.class);
                 startActivity(intent);
             }
         });
         coffeeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(view.getContext(),CoffeeActivity.class);
+                Intent intent = new Intent(view.getContext(), CoffeeActivity.class);
                 startActivity(intent);
             }
         });
-
-
         sandwichButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(view.getContext(),SandwichActivity.class);
+                Intent intent = new Intent(view.getContext(), SandwichActivity.class);
                 startActivity(intent);
             }
         });
@@ -72,7 +80,7 @@ public class MainActivity extends AppCompatActivity {
         cartButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(view.getContext(),CartActivity.class);
+                Intent intent = new Intent(view.getContext(), CartActivity.class);
                 startActivity(intent);
             }
         });
@@ -80,11 +88,10 @@ public class MainActivity extends AppCompatActivity {
         orderButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(view.getContext(),OrdersActivity.class);
+                Intent intent = new Intent(view.getContext(), OrdersActivity.class);
                 startActivity(intent);
             }
         });
-
     }
 
 }

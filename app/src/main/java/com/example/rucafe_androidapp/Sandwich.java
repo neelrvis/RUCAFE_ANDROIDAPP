@@ -1,12 +1,18 @@
 package com.example.rucafe_androidapp;
 
+/**
+ * Describes a Sandwich Item
+ * 
+ * @author Tadhg
+ */
 public class Sandwich extends MenuItem {
 
     /*
      * A beef sandwich is $10.99,
      * a chicken sandwich is $8.99,
      * and a fish sandwich is $9.99.
-     * Customers can choose the add-ons, including cheese, lettuce, tomatoes, and onions.
+     * Customers can choose the add-ons, including cheese, lettuce, tomatoes, and
+     * onions.
      * However, each veggie add-on costs $0.30 extra, and the cheese costs $1 extra.
      */
 
@@ -37,9 +43,10 @@ public class Sandwich extends MenuItem {
     /**
      * Parametrized constructor for Sandwich item
      * Initializes Sandwich item with passed parameters
-     * @param bread SandwichBread enum for bread type
+     * 
+     * @param bread   SandwichBread enum for bread type
      * @param protein SandwichProtein enum for protein type
-     * @param addons SandwichAddons enum for
+     * @param addons  SandwichAddons enum for
      */
     public Sandwich(SandwichBread bread, SandwichProtein protein, SandwichAddons[] addons) {
         this.bread = bread;
@@ -49,6 +56,7 @@ public class Sandwich extends MenuItem {
 
     /**
      * Sets bread type
+     * 
      * @param bread SandwichBread enum type
      */
     public void setBread(SandwichBread bread) {
@@ -59,6 +67,7 @@ public class Sandwich extends MenuItem {
 
     /**
      * Sets protein type
+     * 
      * @param protein SandwichProtein enum type
      */
     public void setProtein(SandwichProtein protein) {
@@ -69,6 +78,7 @@ public class Sandwich extends MenuItem {
 
     /**
      * Sets addons for Sandwich
+     * 
      * @param addons SandwichAddons Enum Array which contains all addons selected
      */
     public void setAddons(SandwichAddons[] addons) {
@@ -77,9 +87,9 @@ public class Sandwich extends MenuItem {
         }
     }
 
-
     /**
      * Computes and returns price of fully customized Sandwich
+     * 
      * @return price of sandwich after all selections
      */
     @Override
@@ -91,9 +101,9 @@ public class Sandwich extends MenuItem {
         return protein.getPrice() + outprice;
     }
 
-
     /**
      * Returns formatted string of Sandwich Item
+     * 
      * @return string representation of Sandwich Item
      */
     @Override
@@ -102,18 +112,15 @@ public class Sandwich extends MenuItem {
         if (addons.length > 0) {
             addonscsv += " with ";
             for (int i = 0; i < addons.length; i++) {
-                if (i < (addons.length-2)) {
+                if (i < (addons.length - 2)) {
                     addonscsv += addons[i].toString().toLowerCase() + ", ";
-                }
-                else if (i < (addons.length-1)) {
+                } else if (i < (addons.length - 1)) {
                     if (addons.length > 2) {
                         addonscsv += addons[i].toString().toLowerCase() + ", & ";
-                    }
-                    else {
+                    } else {
                         addonscsv += addons[i].toString().toLowerCase() + " & ";
                     }
-                }
-                else {
+                } else {
                     addonscsv += addons[i].toString().toLowerCase();
                 }
             }
